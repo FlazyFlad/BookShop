@@ -220,3 +220,7 @@ table.table .avatar {
 .modal form label {
     font-weight: normal;
 }
+.list-group-item {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 20px;
+}
