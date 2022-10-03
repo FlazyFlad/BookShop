@@ -34,7 +34,8 @@ class BookController extends Controller
     }
 
     public function show(Book $book){
-        return view('books.show', ['book' => $book]);
+        $vendors = Vendor::all();
+        return view('books.show', ['book' => $book, 'vendors' => $vendors]);
     }
 
     public function edit(Book $book){

@@ -22,15 +22,6 @@
             </svg>
             BookWorld</a>
 
-{{--        <a sec:authorize="isAuthenticated()" style="color: white;--}}
-{{--                font-size: 15px; text-decoration: none; padding-left: 1140px;" th:text="${currentUser.fullName}"></a>--}}
-
-{{--        <a sec:authorize="isAuthenticated()" th:href="@{/logout}" style="color: white; padding-left: 20px;--}}
-{{--                font-size: 15px; text-decoration: none;">Logout</a>--}}
-
-{{--        <a sec:authorize="isAnonymous()" th:href="@{/login}" style="color: white;--}}
-{{--                font-size: 15px; text-decoration: none;padding-bottom: 15px; padding-left: 1300px; margin-right: 15px">Login</a>--}}
-
     </div>
 </div>
 <div class="container">
@@ -48,7 +39,11 @@
                         <li class="list-group-item">Author:{{$book->author}}</li>
                         <li class="list-group-item">Description:{{$book->description}}</li>
                         <li class="list-group-item">Price:{{$book->price}}</li>
-                        <li class="list-group-item">Price:{{$book->vendor_id}}</li>
+                        @foreach($vendors as $vendor)
+                        @if($vendor->id === $book->vendor_id)
+                        <li class="list-group-item">Vendor:{{$vendor->vendor_name}}</li>
+                        @endif
+                        @endforeach
                     </ul>
                     <div class="card-body">
                         <a style="font-family: 'Varela Round', sans-serif; font-size: 20px;"
