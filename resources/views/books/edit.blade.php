@@ -42,11 +42,6 @@
                     </div>
                     <div class="form-group">
                         <label>Vendor</label>
-                        <select name="vendor_id" class="form-select">
-                            @foreach($vendors as $vendor)
-                                <option name="vendor_name" value="{{$vendor->id}}" @if($vendor->id == $book->vendor_id) selected @endif>{{$vendor->vendor_name}}</option>
-                            @endforeach
-                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">
