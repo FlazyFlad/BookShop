@@ -11,6 +11,9 @@
 
 
 <body class="antialiased">
+@if(session('status'))
+    {{session('status')}}
+@endif
 <div fragment="header" style="padding:0px 0px 10px 20px;background-color: #415d7e;">
     <div style="display: flex">
         <a href="{{ route('books.index') }}" style="color: white; font-weight: bold; padding-left: 50px;
@@ -27,7 +30,7 @@
         @endguest
         @auth()
             <a style="color: white;
-                font-size: 15px; text-decoration: none; padding-left: 1140px;"><?php echo \Illuminate\Support\Facades\Auth::user()->email ?></a>
+                font-size: 15px; text-decoration: none; padding-left: 1140px;"><?php echo Auth::user()->email ?></a>
                         <a style="color: white; padding-left: 40px;
                       font-size: 15px; text-decoration: none;" href="{{ route('logout') }}">Log Out</a>
             <p style="color: white;
@@ -53,6 +56,7 @@
             <table class="table table-striped table-hover">
                 <thead>
                 <tr>
+                    <th>Image</th>
                     <th>Name</th>
                     <th>Author</th>
                     <th>Description</th>
@@ -63,7 +67,7 @@
                 </thead>
                 <tbody>
                 <tr @foreach($mybooks as $book)>
-
+                    <td style="max-width: 256px"><img src="{{asset('/storage/'.$book->image)}}" alt="image"></td>
                     <td>{{$book->name}}</td>
                     <td>{{$book->author}}</td>
                     <td>{{$book->description}}</td>

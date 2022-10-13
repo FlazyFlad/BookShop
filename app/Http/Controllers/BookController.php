@@ -22,11 +22,13 @@ class BookController extends Controller
     }
 
     public function store(Request $request){
+        $path = $request -> file('image')->store('image', 'public');
         Book::create([
             'name' => $request->name,
             'author' =>$request->author,
             'description' => $request->description,
             'price' => $request->price,
+            'image' => $path,
             'vendor_id' => $request->vendor_id
         ]);
 
@@ -44,11 +46,13 @@ class BookController extends Controller
     }
 
     public function update(Request $request, Book $book){
+        $path = $request -> file('image')->store('image', 'public');
         $book->update([
             'name' => $request->name,
             'author' =>$request->author,
             'description' => $request->description,
             'price' => $request->price,
+            'image' => $path,
             'vendor_id' => $request->vendor_id
         ]);
 

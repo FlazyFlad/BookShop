@@ -9,7 +9,7 @@ class Book extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'author', 'description', 'price', 'vendor_id'];
+    protected $fillable = ['name', 'author', 'description', 'price', 'image','vendor_id'];
 
     public function vendor() {
         return $this->belongsTo(Vendor::class);

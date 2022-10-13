@@ -12,7 +12,7 @@
 <body class="antialiased">
 
 <div class="container">
-    <form action="{{route('books.store')}}" method="POST">
+    <form action="{{route('books.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="modal-header">
             <div class="col-xs-6">
@@ -43,6 +43,10 @@
                         <option name="vendor_name" value="{{$vendor->id}}">{{$vendor->vendor_name}}</option>
                     @endforeach
                 </select>
+            </div>
+            <div class="form-group">
+                <label>Image</label><br>
+                <input type="file" name="image" required>
             </div>
         </div>
         <div class="modal-footer">

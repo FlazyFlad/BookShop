@@ -13,7 +13,7 @@
 <body class="antialiased">
 
 <div class="container">
-    <form action="{{route('books.update', $book->id)}}" method="POST">
+    <form action="{{route('books.update', $book->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="container">
@@ -42,6 +42,15 @@
                     </div>
                     <div class="form-group">
                         <label>Vendor</label>
+                        <select name="vendor_id" class="form-select">
+                            @foreach($vendors as $vendor)
+                                <option name="vendor_name" value="{{$vendor->id}}" selected >{{$vendor->vendor_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Image</label>
+                        <input type="file" name="image" required>
                     </div>
                 </div>
                 <div class="modal-footer">
