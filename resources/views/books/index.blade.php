@@ -11,9 +11,6 @@
 
 
 <body class="antialiased">
-@if(session('status'))
-    {{session('status')}}
-@endif
 <div fragment="header" style="padding:0px 0px 10px 20px;background-color: #415d7e;">
     <div style="display: flex">
         <a href="{{ route('books.index') }}" style="color: white; font-weight: bold; padding-left: 50px;
@@ -42,6 +39,9 @@
         @endauth
     </div>
 </div>
+@if(session('status'))
+    {{session('status')}}
+@endif
 <div class="container">
     <div class="table-responsive">
         <div class="table-wrapper">
