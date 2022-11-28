@@ -27,7 +27,15 @@ class BookServiceImpl implements BookService
 
     public function create(BookStoreRequest $request)
     {
-        $book = new BookResource(Book::create($request->validated()));
+        $path = $request -> file('image')->store('image', 'public');
+        $book = new BookResource(Book::create([
+            'name' => $request->name,
+            'author' =>$request->author,
+            'description' => $request->description,
+            'price' => $request->price,
+            'image' => $path,
+            'vendor_id' => $request->vendor_id
+        ]));
 
         return ($book);
     }

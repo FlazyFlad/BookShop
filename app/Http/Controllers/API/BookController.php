@@ -35,8 +35,6 @@ class BookController extends Controller
             'status' => true,
             'book' => $book
         ]);
-//        $book = Book::create($request->validated());
-//        return new BookStoreRequest($book);
     }
 
     public function show($id)
@@ -62,6 +60,7 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         $book = $this->bookService->destroy($book);
+
         return response()->json([
             'status' => true,
             'book' => $book

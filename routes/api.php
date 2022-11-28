@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\BookController;
+use App\Http\Controllers\API\AuthApiController;
+use App\Http\Controllers\API\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,8 @@ use App\Http\Controllers\API\BookController;
 //});
 
 Route::apiResource('/books', BookController::class, array("as" => "api"));
+
+Route::post('/register', [AuthApiController::class, 'register']);
+Route::get('emps', [EmployeeController::class, 'index'])->middleware(['auth:api', 'isAdmin']);
+Route::post('/login', [AuthApiController::class, 'login']);
+

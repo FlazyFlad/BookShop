@@ -14,6 +14,7 @@ class BookResource extends JsonResource
             'name' => $this->name,
             'author' => $this->author,
             'description' => $this->description,
+            'image' => $this->image,
             'price' => $this->price,
             'created_at' => Carbon::parse($this->created_at)->format('Y-m-d H:m:s'),
             'vendor' => $this->vendor->vendor_name,
